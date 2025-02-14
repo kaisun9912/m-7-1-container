@@ -15,7 +15,7 @@ jobs:
       image: node:16  # all steps of this job runs in this container, and the `actions/*` by github still works
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: 127.0.0.1:27017
+      MONGODB_CLUSTER_ADDRESS: mongodb:27017
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
       PORT: 8080
