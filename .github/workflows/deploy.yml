@@ -14,9 +14,9 @@ jobs:
     container:
       image: node:16  # all steps of this job runs in this container, and the `actions/*` by github still works
     env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb+srv  # create a free mongodb cluster on https://www.mongodb.com/
-      MONGODB_CLUSTER_ADDRESS: cluster0.uj6j5.mongodb.net
-      MONGODB_USERNAME: root   # for service container; secrets.MONGODB_USERNAME
+      MONGODB_CONNECTION_PROTOCOL: mongodb
+      MONGODB_CLUSTER_ADDRESS: 127.0.0.1:27017
+      MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
       PORT: 8080
     services:
@@ -25,6 +25,8 @@ jobs:
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: example
+        ports:
+        - 27017:27017
     steps:
       - name: Get Code
         uses: actions/checkout@v4
